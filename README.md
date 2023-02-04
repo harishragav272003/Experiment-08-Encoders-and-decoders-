@@ -55,42 +55,73 @@ D7 = X Y Z
 ## Figure -04 8 to 3 Decoder implementation 
 
 ### Procedure
-/* write all the steps invloved */
+Step 1: Create module encoder and decoder.
+Step 2: Get inputs and outputs for encoders and decoders.
+Step 3: Perform "or" operation for encoder and "and" logic for decoders.
+Step 4: Perform RTL LOGIC and get waveform.
+Step-5: End the module.
 
 
 
 ### PROGRAM 
+ENCODER
+module EXP(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+output a,b,c;
+input d0,d1,d2,d3,d4,d5,d6,d7;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
+
+DECODER
+module EXP(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+input a,b,c;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0 = (~a&~b&~c);
+assign d1 = (~a&~b&c);
+assign d2 = (~a&b&~c);
+assign d3 = (~a&b&c);
+assign d4 = (a&~b&~c);
+assign d5 = (a&~b&c);
+assign d6 = (a&b&~c);
+assign d7 = (a&b&c);
+endmodule
+
 /*
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: HARISH RAGAV S
+RegisterNumber:  2200 8415
 */
 
 
 
-
-
-
 ### RTL LOGIC  
+ENCODER
+![image](https://user-images.githubusercontent.com/119345345/216766901-f0ae350d-20ec-4774-bb4d-fc615e8c6641.png)
 
-
-
-
-
+DECODER
+![image](https://user-images.githubusercontent.com/119345345/216766917-b2ba89f5-cad8-4b15-abdf-3557d41cd200.png)
 
 
 
 ### TIMING DIGRAMS  
+ENCODER
+![image](https://user-images.githubusercontent.com/119345345/216766956-152f04f9-eefb-4ee1-8cf6-fa70a319ad10.png)
 
+DECODER
+![image](https://user-images.githubusercontent.com/119345345/216766963-7b64acc4-ed34-4da3-95a1-920f7ace426f.png)
 
 
 
 
 ### TRUTH TABLE 
+ENCODER
+![image](https://user-images.githubusercontent.com/119345345/216766973-1b65b9e6-6a81-40f0-9a7e-94e6a85f9eb7.png)
 
 
-
-
+DECODER
+![image](https://user-images.githubusercontent.com/119345345/216766999-08554262-6541-4936-acfb-34af8dd4420f.png)
 
 
 ### RESULTS 
+Thus the program to implement encoder and decoder using verilog is verified.
